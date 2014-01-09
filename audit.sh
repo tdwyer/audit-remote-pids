@@ -25,14 +25,19 @@ PID=""
 main() {
   [[ ! -d ${LOG_PATH} ]] && ${MKDIR} ${LOG_PATH} || clean_logs
   #
-  log_init
-  ${TOUCH} ${RUN}
-  #
   audit_loop &
+}
+
+clean_logs() {
+  #
+  #
+  echo 'Clean Out Old Longs - TODO'
 }
 
 audit_loop() {
   #
+  #
+  ${TOUCH} ${RUN}
   #
   while [[ -f ${RUN} ]] ; do
     log_init
@@ -42,12 +47,6 @@ audit_loop() {
   done
   #
   echo "Audit Stoped ${LTIME}" >> ${LOG}
-}
-
-clean_logs() {
-  #
-  #
-  echo 'TODO'
 }
 
 log_init() {
@@ -85,6 +84,10 @@ audit() {
   done
 }
 
+dir_list() {
+  echo -n "$(${LS} -trd1 /proc/[[:digit:]]* | tail -n +50)"
+}
+
 check() {
   [[ "$(${CAT} ${PDIR}/ipaddr 2>/dev/null)" != '0.0.0.0' ]] && echo -n 1
 }
@@ -113,10 +116,6 @@ uid() {
 
 ip() {
   echo -n "$(${CAT} ${PDIR}/ipaddr 2>/dev/null)"
-}
-
-dir_list() {
-  echo -n "$(${LS} -trd1 /proc/[[:digit:]]* | tail -n +70)"
 }
 
 main
