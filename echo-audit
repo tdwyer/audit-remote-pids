@@ -1,0 +1,16 @@
+#!/bin/bash
+#
+DATE=/usr/bin/date
+TAIL=/usr/bin/tail
+GREP=/usr/bin/grep
+WC=/usr/bin/wc
+
+
+LDATE="$(${DATE} +"%m-%d-%y")"
+LOG_PATH="/var/log/audit"
+LOG_FILE="${LOG_PATH}/RemotePIDs-${LDATE}.log"
+COUNT="$(${GREP} ${LOG_FILE} | ${WC} -l)"
+
+echo "(${COUNT}) $(${TAIL} -n 1 ${LOG_FILE})"
+
+exit 0

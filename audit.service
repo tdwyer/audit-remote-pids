@@ -1,0 +1,10 @@
+[Unit]
+Description=Log PIDs owned started by remote users. Must have linux-grsec and GRKERNSEC_PROC_IPADDR enabled
+
+[Service]
+Type=forking
+ExecStart=/usr/local/bin/audit.sh
+ExecStop=/usr/bin/rm /var/lib/audit/run
+
+[Install]
+WantedBy=multi-user.target
