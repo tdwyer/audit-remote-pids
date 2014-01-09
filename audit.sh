@@ -19,7 +19,6 @@ LTIME=""
 LOG=""
 #
 PDIR=""
-PSTAMP=""
 PID=""
 
 main() {
@@ -99,15 +98,15 @@ pid() {
 log_process() {
   #
   #
-  process="$(comm)(${PID})"
+  process="$(cmdline)(${PID})"
   host="($(uid))$(ip)"
 
   [[ ! $(${GREP} "${process}" ${LOG}) && ${host} != "()" ]] && \
     echo "${LTIME} ${process}@${host}" >> ${LOG}
 }
 
-comm() {
-  echo -n "$(${CAT} ${PDIR}/comm 2>/dev/null)"
+cmdline() {
+  echo -n "$(${CAT} ${PDIR}/cmdline 2>/dev/null)"
 }
 
 uid() {
