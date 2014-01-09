@@ -35,8 +35,8 @@ audit_loop() {
   #
   #
   while [[ -f ${RUN} ]] ; do
-    echo "Audit ${LTIME}" >> ${LOG}
     log_init
+    echo "Audit ${LTIME}" >> ${LOG}
     audit
     ${SLEEP} ${WAIT}
   done
