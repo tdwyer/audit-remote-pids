@@ -1,1 +1,14 @@
+#
+# Get rid of the Vertical divider/border
+rendition so "="
+#
 backtick 1 60 60 echo-audit
+#
+caption splitonly
+caption string '%= %?%F%{= dw}%:%{= dK}%?%?%P%{g}%?%?%F<%{= K.}%?<%?%F%{= wK}%:%{= Kw}%?%?%P%{= gW}%? %n%f %t %?%F%{= dw}%:%{= dK}%?%?%P%{g}%?%?%F%{= K.}>%{-}%?>%{= dd} %= '
+#
+hardstatus on
+hardstatus alwayslastline
+#
+hardstatus string '%?%E%{= rW}%:%{= wK}%? %H %{-}%?%E%{= Kr}%:%{= Kw}%?>%{-}%{= K.} %l %{= dK}>%{= dd} %1` %= %{= .K}<%{-}%{= K.} %-Lw%{-}%{= Kw}<%{-}%{= wK} %n%f %t %{-}%{= Kw}>%{-}%{= K.}%+Lw %{-}%{= .K}>%{-} %= %D %{= .K}<%{-}%{= K.} %M`%d %{w}<%{= wK} %C %a %{= dd}'
+
